@@ -12,5 +12,3 @@
 
 소스 복제, 변형, 재사용, 2차 배포 등 소스(main.py)에 대한 모든 권한은 오직 제작자에게만 있습니다.
 
-https://download.oracle.com/java/22/archive/jdk-22_windows-x64_bin.zip
-^ 자바 포터블 (JAVA 22)
