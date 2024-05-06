@@ -1,5 +1,5 @@
 # AutoPaper
-![AutoPapers](./resources/AutoPaperPng.png)  
+![AutoPapers](./AutoPaperPng.png)  
 
 **자동으로 페이퍼 서버를 세팅해주는 프로그램**
 
@@ -11,3 +11,6 @@
 독점 소프트웨어. 
 
 소스 복제, 변형, 재사용, 2차 배포 등 소스(main.py)에 대한 모든 권한은 오직 제작자에게만 있습니다.
+
+https://download.oracle.com/java/22/archive/jdk-22_windows-x64_bin.zip
+^ 자바 포터블 (JAVA 22)
