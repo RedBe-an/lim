@@ -1,5 +1,5 @@
 # AutoPaper
-![AutoPapers](./AutoPaperPng.png)  
+![AutoPapers](./resources/AutoPaperPng.png)  
 
 **자동으로 페이퍼 서버를 세팅해주는 프로그램**
 
