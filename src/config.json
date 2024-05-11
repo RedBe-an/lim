@@ -1,8 +1,0 @@
-{
-    "log_format" : {
-        "info" : "[+] HH-MM-SS : ",
-        "warn" : "[-] HH-MM-SS : ",
-        "error" : "[!] HH-MM-SS : ",
-        "question" : "[?] {prompt} : "
-    }
-}
