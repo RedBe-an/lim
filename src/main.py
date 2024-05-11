@@ -18,16 +18,14 @@ belong only to be-noi, the copyright holder of this program.
 If this is not followed, the copyright holder or agent may take legal action.
 """
 
-from typing import NoReturn, TypeAlias
-from requests import get
+from typing import NoReturn
 import os
 import threading
 import sys
 import time
-import zipfile
 
 from core.errors.error import unexpectedInputError
-from core.helper.filehelper import fileHelper
+from core.helper.file_helper import fileHelper
 from core.helper.prompt import promptHelper, promptType
 from core.variables.typevar import _ExitStatus, _MemoryValue
 
@@ -102,21 +100,18 @@ def run_server(server_folder, scriptfile) :
 if __name__ == "__main__":
     filehelper = fileHelper()
 
-    main_logger = promptHelper("src\\program\\config\\log_format.json")
+    main_logger = promptHelper("src\\config\\log_format.json")
     main_logger.load_config()
 
-    safy_signature = """
-  #####    ###    #######  #### ### 
- ##   #    ###     ##  ##   ##   #  
- ###       # ##    ##   #    ## #   
-  ####    #  ##    ####       ##    
-    ###  #######   ##         ##    
- #   ##  #    ##   ##         ##    
- #####   ##   ### ####       ####   
-
-- SAFY - Server Agent For only You -
-"""
-    print(safy_signature)
+    print("""
+             _    _              
+            | |  (_)             
+            | |   _    _ __ ___  
+            | |  | |  | '_ ` _ \\ 
+            | |  | |  | | | | | |
+            |_|  |_|  |_| |_| |_|                      
+    """)
+    
 
     min_mem = main_logger.log(
         "Minimum memory usage (ex. 4G, 4096M)", promptType.QUESTION

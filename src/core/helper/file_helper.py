@@ -5,7 +5,6 @@ import zipfile
 from requests import get
 
 from core.helper.prompt import promptType
-from main import wait_and_exit, main_logger
 
 
 class fileHelper:
@@ -19,16 +18,11 @@ class fileHelper:
         os.chdir(path)
 
     def download_file(self, url, filename, path):
-        try:
-            response = get(url)
-            with open(path + "\\" + filename, "wb") as file:
-                file.write(response.content)
-            return 0
-        except Exception as ex:
-            main_logger.log(
-                f"ERROR downloading file: \n{traceback.format_exc()}", promptType.ERROR
-            )
-            wait_and_exit(3)
+        response = get(url)
+        with open(path + "\\" + filename, "wb") as file:
+            file.write(response.content)
+        return 0
+        
 
     def read_file(self, filename):
         with open(filename, "r", encoding="utf-8") as file:
