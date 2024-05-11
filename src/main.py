@@ -5,35 +5,30 @@ import time
 import json
 from enum import Enum, auto
 
+class messageType(Enum) :
+    INFO = auto()
+    WARN = auto()
+    ERROR = auto()
+    QUESTION = auto()
 class logger() :
-    class logMessageType(Enum):
-        INFO = auto()
-        WARN = auto()
-        ERROR = auto()
-        QUESTION = auto()
-
     def __init__(self) :
-        pass
+        self
     
-    def load_config(self, 
-                    file_name : str, 
-                    /) :
+    def load_config(self, file_name : str, /) :
         with open (file_name, "r") as f:
             data = json.load(f)
         self.config = data
         self.log_format  =  self.config["log_format"]
 
-    def log(self, message : str, type : str = "info") :
+    def log(self, message : str, type : messageType = "info") :
         pass
 
 _ExitStatus: TypeAlias = str | int | None
 _MemoryValue: TypeAlias = str | int
 
-def wait_exit(sleep_sec: int = 0, 
-              status: _ExitStatus = 0, 
-              /) -> NoReturn :
-    time.sleep(sleep_sec) 
-    sys.exit(status)
+def wait_and_exit(sleep_sec: int = 0, status: _ExitStatus = 0, /) -> NoReturn :
+    time.sleep(sleep_sec) # wait for sleep_sec second.
+    sys.exit(status)  # process exit with status
 
 def get_command(min_memory: _MemoryValue,
                 max_memory: _MemoryValue,
@@ -79,3 +74,4 @@ def get_command(min_memory: _MemoryValue,
 
     command += f" -jar {file_name}\npause" # -jar option and pause set 
     return command
+

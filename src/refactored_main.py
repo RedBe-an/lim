@@ -42,7 +42,7 @@ def get_server_start_command(
             "-Daikars.new.flags=true",
         ]
     )
-    no_gui_flag = " nogui"
+    no_gui_flag = " --nogui"
     start_command = f"java -Xms{min_memory} -Xmx{max_memory} "
     if use_aikar_flags == "y":
         start_command += aikar_flags + " "
