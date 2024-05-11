@@ -1,3 +1,15 @@
+#     #####     ##     #######  ##  ##  
+#    ##   ##   ####     ##   #  ##  ##  
+#    #        ##  ##    ## #    ##  ##  
+#     #####   ##  ##    ####     ####   
+#         ##  ######    ## #      ##    
+#    ##   ##  ##  ##    ##        ##    
+#     #####   ##  ##   ####      ####   
+#
+#          Server Agent For You
+#
+                                    
+
 import os
 import traceback
 from typing import NoReturn, TypeAlias
@@ -8,6 +20,9 @@ import json
 from enum import IntEnum, auto
 
 from error import unexpectedInputError
+
+_ExitStatus: TypeAlias = str | int | None
+_MemoryValue: TypeAlias = str | int
 
 class promptType(IntEnum) :
     INFO = auto()
@@ -39,9 +54,6 @@ class promptHelper() :
                 "The type parameter is not an integer or a messageType class constant."
                 )
             
-_ExitStatus: TypeAlias = str | int | None
-_MemoryValue: TypeAlias = str | int
-
 def wait_and_exit(sleep_sec: int = 0, status: _ExitStatus = 0, /) -> NoReturn :
     time.sleep(sleep_sec) # wait for sleep_sec second.
     sys.exit(status)  # process exit with status
@@ -95,14 +107,18 @@ class fileHelper() :
     def __init__(self) :
         pass
 
-    def get_cwd() :
+    def get_cwd(self) :
         return os.getcwd()
+    
+    def ch_dir(self, path) :
+        os.chdir(path)
 
     def download_file(self, url, filename):
         try:
             response = get(url)
             with open(filename, "wb") as file:
                 file.write(response.content)
+            return 0
         except Exception as ex:
             main_logger.log(
                 f"ERROR downloading file: \n{traceback.format_exc()}", promptType.ERROR
@@ -110,24 +126,24 @@ class fileHelper() :
             wait_and_exit(3)
     
     def read_file(self, filename) :
-        pass
+        with open(filename, "r", encoding="utf-8") as file :
+            file.read()
 
-    def make_file(self, filename, data) :
-        pass
+    def make_file(self, filename, path, data) :
+        with open(f"{path}/{filename}", "w") as file:
+            file.write(data)
+        return 0
 
     def make_dir(self, dirname, path) :
-        os.mkdir(path + "/" + dirname)
+        os.mkdir(path + "\\" + dirname)
+        return 0
 
     def read_dir(self, dirname) :
-        check_list = os.listdir(dirname)
-        for checkfile in check_list :
-            checkfile = f"{dirname}/{checkfile}"
-            isitfile = os.path.isfile(checkfile)
-            if not isitfile :
-                self.read_dir(checkfile)
-
-
+        return os.listdir(dirname)
+        
 if __name__ == "__main__" :
-    main_logger = promptHelper()
-    main_logger.load_config("src\config.json")
+    filehelper = fileHelper()
+
+    main_logger = promptHelper("src\\program\\config.json")
+    main_logger.load_config()
     main_logger.log("Log Message")
