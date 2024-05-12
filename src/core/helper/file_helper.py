@@ -1,4 +1,5 @@
 import os
+import shutil
 import zipfile
 
 from requests import get
@@ -45,4 +46,8 @@ class fileHelper:
         with zipfile.ZipFile(zip_path, 'r') as zip_ref:
             # 압축 해제
             zip_ref.extractall(target_folder)
+
+    def move_file(self, src, dir, filename) :
+        shutil.move(src, dir + "\\" + filename)
+
 

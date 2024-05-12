@@ -1,2 +1,3 @@
 server/
 resources/jdk-22_windows-x64_bin.zip
+*.pyc
