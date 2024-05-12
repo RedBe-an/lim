@@ -11,8 +11,20 @@
                              
 ```
 
-*lim*, your *only and one* **minecraft server agent**
+*lim*, your *only and one* **minecraft server agent**.
 
 ---
 ## Lim?
 Lim is python based minecraft server agent.
+
+## Commands
+```
+lim <command> [options]
+
+lim set   set basic server base.
+    add   add plugin in your server.
+    prop  set server props.
+    run   run server.
+
+
+    
