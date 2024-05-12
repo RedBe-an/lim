@@ -1,11 +1,7 @@
 import os
-import traceback
 import zipfile
 
 from requests import get
-
-from core.helper.prompt import promptType
-
 
 class fileHelper:
     def __init__(self):

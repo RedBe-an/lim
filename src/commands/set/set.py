@@ -8,21 +8,14 @@ belong only to be-noi, the copyright holder of this program.
 If this is not followed, the copyright holder or agent may take legal action.
 """
 
-from typing import NoReturn
 import os
 import threading
-import sys
 import time
 
-from core.errors.error import unexpectedInputError
 from core.helper.file_helper import fileHelper
-from core.helper.prompt import promptHelper, promptType
-from core.variables.typevar import _ExitStatus, _MemoryValue
-
-def wait_and_exit(sleep_sec: int = 0, status: _ExitStatus = 0, /) -> NoReturn:
-    time.sleep(sleep_sec)  # wait for sleep_sec second.
-    sys.exit(status)  # process exit with status
-
+from core.helper.prompt_helper import promptHelper, promptType
+from core.utils.utils import str_to_bool, wait_and_exit
+from core.variables.typevar import _MemoryValue
 
 def get_command(
     min_memory: _MemoryValue,
@@ -64,17 +57,6 @@ def get_command(
 
     command += f" -jar {file_name}\npause"  # -jar option and pause set
     return command
-
-
-def str_to_bool(y_or_n : str):
-    s = y_or_n.lower()
-    if s in ['y', 'yes', 'true', 't', '1']:
-        return True
-    elif s in ['n', 'no', 'false', 'f', '0']:
-        return False
-    else:
-        raise unexpectedInputError
-
 
 def run_server(server_folder, scriptfile) :
     filehelper = fileHelper()
