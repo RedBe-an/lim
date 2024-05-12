@@ -10,8 +10,6 @@ def str_to_bool(y_or_n : str):
         return True
     elif s in ['n', 'no', 'false', 'f', '0']:
         return False
-    else:
-        raise unexpectedInputError
 
 def wait_and_exit(sleep_sec: int = 0, status: _ExitStatus = 0, /) -> NoReturn:
     time.sleep(sleep_sec)  # wait for sleep_sec second.
