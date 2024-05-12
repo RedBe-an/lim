@@ -9,7 +9,7 @@ def add(arg) :
 
     filehelper = fileHelper()
 
-    main_logger = promptHelper("D:\\Proj\\AutoPaper\\AutoPaper\\src\\config\\log_format.json")
+    main_logger = promptHelper("log_format.json")
     main_logger.load_config()
 
     main_logger.log(f"adding plugin : {arg} -> {filehelper.get_cwd()}\\{os.path.basename(arg)}")

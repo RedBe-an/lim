@@ -67,7 +67,7 @@ def run_server(server_folder, scriptfile) :
 def set_server() :
     filehelper = fileHelper()
 
-    main_logger = promptHelper("src\\config\\log_format.json")
+    main_logger = promptHelper("log_format.json")
     main_logger.load_config()
 
     print("""

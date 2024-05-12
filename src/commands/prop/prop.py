@@ -16,7 +16,7 @@ def set_props() :
     
     filehelper = fileHelper()
 
-    main_logger = promptHelper("D:\\Proj\\AutoPaper\\AutoPaper\\src\\config\\log_format.json")
+    main_logger = promptHelper("log_format.json")
     main_logger.load_config()
 
     lim()
