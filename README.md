@@ -1,4 +1,4 @@
-# Welcome to Lim
+# Lim, *당신의 유일무이한* **마인크래프트 서버 에이전트.**
 
 ```
  ___                          
@@ -11,20 +11,30 @@
                              
 ```
 
-*lim*, your *only and one* **minecraft server agent**.
-
 ---
 ## Lim?
-Lim is python based minecraft server agent.
+파이썬으로 만들어진 마인크래프트 서버 에이전트입니다. 현재 v1.0.0만 게시되었습니다.
 
-## Commands
+## 커맨드
 ```
 lim <command> [options]
 
-lim set   set basic server base.
-    add   add plugin in your server.
-    prop  set server props.
-    run   run server.
+lim set   서버의 기초 구획을 설정합니다.
+    add   당신의 서버에 플러그인을 추가합니다. 
+          -i 옵션으로 플러그인 파일 위치를 설정합니다.
+    prop  server.properties 파일을 쉽게 편집합니다.
+    run   서버를 실행합니다.
+
+    -i    add 커맨드를 사용할 때 플러그인 파일의 위치를 설정합니다.
 ```
 
-    
+## 주의사항과 유의사항
+### 주의사항
+- ! set 프로세스 중 Ctrl + C 등 강제로 프로세스를 종료하면 서버 설정이 제대로 되지 않습니다.
+
+### 유의사항 (v1.0.0 한정)
+
+!! 현재 **인스톨러가 만들어지지 않아**, 사용에 불편함이 있을 수 있기 때문에
+!! 환경변수를 따로 설정하시거나,  `"~/lim.exe" <command> [options]` 처럼 변형해 사용하시기 바랍니다.
+!! 다음 버전까지 최대한 빨리 만들어보도록 하겠습니다...
+!! ||아직 개발이 미숙해요...||
